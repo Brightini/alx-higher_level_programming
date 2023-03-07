@@ -11,7 +11,7 @@ int check_cycle(listint_t *list)
 {
 	listint_t *temp;
 
-	if (!list)
+	if (!list || !list->next)
 		return (0);
 
 	temp = list;
