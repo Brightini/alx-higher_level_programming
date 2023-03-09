@@ -9,17 +9,19 @@
 */
 int check_cycle(listint_t *list)
 {
-	listint_t *temp;
+	listint_t *head, *tail;
 
 	if (!list || !list->next)
 		return (0);
 
-	temp = list;
-	while (temp->next)
+	tail = list;
+	head = list->next;
+	while (head->next)
 	{
-		if (temp->next->n == list->n)
+		if (head == tail)
 			return (1);
-		temp = temp->next;
+		head = head->next->next;
+		tail = tail->next;
 	}
 	return (0);
 }
