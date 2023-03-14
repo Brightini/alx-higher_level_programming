@@ -6,6 +6,11 @@ def print_reversed_list_integer(my_list=[]):
     Args:
         my_list: list of integers
     """
-    idx = len(my_list)
-    for item in range(idx, 0, -1):
-        print("{:d}".format(item))
+    if my_list == None:
+        return
+    idx = len(my_list) - 1
+    for item in range(idx, -1, -1):
+        if type(my_list[item]) != int:
+            continue
+        else:
+            print("{:d}".format(my_list[item]))
