@@ -6,11 +6,10 @@ def print_reversed_list_integer(my_list=[]):
     Args:
         my_list: list of integers
     """
-    if my_list is None:
-        return
     idx = len(my_list) - 1
-    for item in range(idx, -1, -1):
-        if type(my_list[item]) != int:
-            return
-        else:
-            print("{:d}".format(my_list[item]))
+    if my_list is None or idx == 0:
+        return
+
+    integers = [x for x in my_list if isinstance(x, int)]
+    for i in range(len(integers)-1, -1, -1):
+        print("{:d}".format(integers[i]))
