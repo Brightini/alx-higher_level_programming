@@ -9,7 +9,7 @@ def print_reversed_list_integer(my_list=[]):
     idx = len(my_list) - 1
     if my_list is None or idx == 0:
         return
-
-    integers = [x for x in my_list if isinstance(x, int)]
-    for i in range(len(integers)-1, -1, -1):
-        print("{:d}".format(integers[i]))
+    for item in range(idx, -1, -1):
+        if not isinstance(my_list[item], int):
+            continue
+        print("{:d}".format(my_list[item]))
