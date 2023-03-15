@@ -6,7 +6,8 @@ def divisible_by_2(my_list=[]):
     Args:
         my_list: a list of integers
 
-    Return: new list    
+    Return:
+        new list
     """
     new_list = my_list.copy()
     for i in range(len(my_list)):

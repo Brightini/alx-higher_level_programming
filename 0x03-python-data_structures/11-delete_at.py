@@ -6,9 +6,9 @@ def delete_at(my_list=[], idx=0):
     Args:
         my_list: a list
         idx: index position of item
-    
+
     Return:
-        the modified list    
+        the modified list
     """
     if idx < 0 or idx >= len(my_list):
         return my_list
