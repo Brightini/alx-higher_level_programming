@@ -6,14 +6,14 @@ class Square():
     """A Square class"""
 
     def __init__(self, size=0, position=(0, 0)):
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
         """Get the size of the square.
 
-        Returns:
+        Return:
             int: The value of the size attribute.
         """
         return self.__size
