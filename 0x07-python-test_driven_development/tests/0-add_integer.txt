@@ -1,0 +1,97 @@
+=================================
+Test for ``0-add_integer`` module
+=================================
+
+This module contains one function, ```add_integer()`` which is used
+to compute the addition of two integers. If any of the arguments
+passed is a float, it is casted to an int. If neither arguments is
+a float or int, a TypeError exception is raised
+
+
+First, import function from module
+::
+    >>> add_integer = __import__("0-add_integer").add_integer
+
+Checking for addition of positive int
+::
+    >>> add_integer(5, 8)
+    13
+    >>> add_integer(5)
+    103
+
+Checking for addition of negative int
+::
+    >>> add_integer(-5, -8)
+    -13
+
+Checking for addition of negative int and positive int
+::
+    >>> add_integer(-5, 8)
+    3
+
+Checking for addition of int and float
+::
+    >>> add_integer(9, 8.7)
+    17
+
+Checking for addition of positive floats
+::
+    >>> add_integer(5.5, 3.2)
+    8
+
+Checking for addition of negative floats
+::
+    >>> add_integer(-5.5, -3.2)
+    -8
+
+Checking for addition of positive float and negative float
+::
+    >>> add_integer(5.5, -3.2)
+    2
+
+Checking for addition of positive int, and string
+::
+    >>> add_integer(5, "h")
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+    >>> add_integer("6", "h")
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Checking for addition of list, and int
+::
+    >>> add_integer([5, 9], 6)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Checking for addition of string, and list
+::
+    >>> add_integer("hello", [5, 9])
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Checking for a addition of None, and int
+::
+    >>> add_integer(None, 6)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Checking for addition of int, and None
+::
+    >>> add_integer(8, None)
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+Checking for addition of None, and None
+::
+    >>> add_integer(None, None)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
