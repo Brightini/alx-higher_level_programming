@@ -38,11 +38,19 @@ Checking for addition of positive floats
 ::
     >>> add_integer(5.5, 3.2)
     8
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+        ...
+    OverflowError: float overflow
 
 Checking for addition of negative floats
 ::
     >>> add_integer(-5.5, -3.2)
     -8
+    >>> add_integer(float('-inf'))
+    Traceback (most recent call last):
+        ...
+    OverflowError: float overflow
 
 Checking for addition of positive float and negative float
 ::
