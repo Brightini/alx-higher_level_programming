@@ -1,0 +1,41 @@
+===============================
+Test for `3-say_my_name` module
+===============================
+
+This module uses the function `say_my_name()` to print
+the first and last names of an object
+
+First, import the function `say_my_name()`:
+::
+    >>> say_my_name = __import__("3-say_my_name").say_my_name
+
+Check for first and last names (both strings):
+::
+    >>> say_my_name("Bright", "Iniabasi")
+    My name is Bright Iniabasi
+
+Check for first name (str) and last name (int):
+::
+    >>> say_my_name("Bright", 10000)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+Check for first name (list) and last name (string):
+::
+    >>> say_my_name(["Bright", "Iniabasi"], "hello")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+Check for both first and last names (non-strings):
+::
+    >>> say_my_name(["Bright"], ["Iniabasi"])
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+Check for only first name:
+::
+    >>> say_my_name("Bright")
+    My name is Bright 
