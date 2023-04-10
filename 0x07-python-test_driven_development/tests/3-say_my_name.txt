@@ -39,3 +39,10 @@ Check for only first name:
 ::
     >>> say_my_name("Bright")
     My name is Bright 
+
+Check for first and last names empty:
+::
+    >>> say_my_name()
+    raceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
