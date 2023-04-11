@@ -7,7 +7,7 @@ class BaseGeometry:
     def area(self):
         """a public instance method that raises an exception"""
         raise Exception("area() is not implemented")
-    
+
     def integer_validator(self, name, value):
         """
         validates a value
@@ -15,7 +15,7 @@ class BaseGeometry:
         Args:
             name: attribute name
             value: attribute value
-        
+
         Raise(s):
             TypeError: if @value is not an int
             ValueError: if @value is <= 0
