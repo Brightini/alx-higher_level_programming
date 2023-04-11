@@ -43,6 +43,6 @@ Check for only first name:
 Check for first and last names empty:
 ::
     >>> say_my_name()
-    raceback (most recent call last):
+    Traceback (most recent call last):
         ...
     TypeError: first_name must be a string
