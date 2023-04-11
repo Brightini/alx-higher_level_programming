@@ -1,0 +1,47 @@
+===============================
+Test for 7-base_geometry module
+===============================
+
+
+This module contains a BaseGeometry class and the methods
+area() and integer_validator()
+
+
+First, import BaseGeometry class and, area() and integer_validator() methods:
+::
+    >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+    >>> area = __import__("7-base_geometry").BaseGeometry.area
+    >>> integer_validator = __import__("7-base_geometry").BaseGeometry.integer_validator
+
+Check for area() method:
+::
+    >>> bg = BaseGeometry()
+    >>> print(bg.area())
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+
+Check for integer_validator method (value of type int):
+::
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("my_int", 12)
+
+Check for integer_validator method (value of type non-int):
+::
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("my_int", "one")
+    Traceback (most recent call last):
+        ...
+    TypeError: my_int must be an integer
+
+Check for integer_validator method (value of <= 0):
+::
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("my_int", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: my_int must be greater than 0
+    >>> bg.integer_validator("number", -1)
+    Traceback (most recent call last):
+        ...
+    ValueError: number must be greater than 0
