@@ -1,5 +1,6 @@
 """Defines test cases for Rectangle class"""
 import unittest
+import doctest
 from models.rectangle import Rectangle
 
 
@@ -56,3 +57,8 @@ class TestRectangleClass(unittest.TestCase):
         """Test for area"""
         self.assertEqual(self.r1.area(), 2)
         self.assertEqual(self.r4.area(), 2)
+
+    def test_str_method(self):
+        """Test for __str__ method"""
+        self.assertEqual(str(self.r3), "[Rectangle] (5) 3/4 - 1/2")
+        self.assertEqual(str(self.r4), "[Rectangle] (15) 3/4 - 1/7")

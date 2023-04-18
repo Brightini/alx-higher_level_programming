@@ -72,3 +72,20 @@ class Rectangle(Base):
     def area(self):
         """Computes and returns the area of a Rectangle object"""
         return (self.__width * self.__height)
+
+    def display(self):
+        """Prints Rectangle instance with character '#'"""
+        for _ in range(self.__y):
+            print()
+        for _ in range(self.__height):
+            print(' ' * self.__x, end="")
+            for _ in range(self.__width):
+                print('#', end="")
+            print()
+
+    def __str__(self):
+        """Returns string representation of Rectangle instance"""
+        str_rep = "[{}] ({}) {}/{} - {}/{}"
+        _id, _x, _y, w = self.id, self.__x, self.__y, self.__width
+        h = self.__height
+        return str_rep.format(__class__.__name__, _id, _x, _y, w, h)
