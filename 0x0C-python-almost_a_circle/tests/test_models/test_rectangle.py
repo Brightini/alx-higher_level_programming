@@ -80,10 +80,12 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_update_method_for_kwargs(self):
         """Test for update method for kwargs"""
+        self.r11.update(200, height=1)
+        self.assertEqual(str(self.r11), "[Rectangle] (200) 10/10 - 10/10")
         self.r11.update(height=1)
-        self.assertEqual(str(self.r11), "[Rectangle] (7) 10/10 - 10/1")
+        self.assertEqual(str(self.r11), "[Rectangle] (200) 10/10 - 10/1")
         self.r11.update(width=1, x=2)
-        self.assertEqual(str(self.r11), "[Rectangle] (7) 2/10 - 1/1")
+        self.assertEqual(str(self.r11), "[Rectangle] (200) 2/10 - 1/1")
         self.r11.update(y=1, width=2, x=3, id=89)
         self.assertEqual(str(self.r11), "[Rectangle] (89) 3/1 - 2/1")
         self.r11.update(x=1, height=2, y=3, width=4)
