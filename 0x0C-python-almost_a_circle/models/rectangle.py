@@ -86,6 +86,16 @@ class Rectangle(Base):
     def __str__(self):
         """Returns string representation of Rectangle instance"""
         str_rep = "[{}] ({}) {}/{} - {}/{}"
-        _id, _x, _y, w = self.id, self.__x, self.__y, self.__width
+        idd, xx, yy, w = self.id, self.__x, self.__y, self.__width
         h = self.__height
-        return str_rep.format(__class__.__name__, _id, _x, _y, w, h)
+        return str_rep.format(__class__.__name__, idd, xx, yy, w, h)
+
+    def update(self, *args, **kwargs):
+        """Updates object attributes"""
+        attr = ['id', 'width', 'height', 'x', 'y']
+        if len(args) != 0:
+            for i, arg in enumerate(args):
+                setattr(self, attr[i], arg)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)

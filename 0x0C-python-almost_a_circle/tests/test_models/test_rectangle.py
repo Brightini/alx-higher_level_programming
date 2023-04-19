@@ -1,6 +1,5 @@
 """Defines test cases for Rectangle class"""
 import unittest
-import doctest
 from models.rectangle import Rectangle
 
 
@@ -13,6 +12,8 @@ class TestRectangleClass(unittest.TestCase):
         cls.r2 = Rectangle(1, 2, 3)
         cls.r3 = Rectangle(1, 2, 3, 4)
         cls.r4 = Rectangle(1, 2, 3, 4, 15)
+        cls.r10 = Rectangle(10, 10, 10, 10)
+        cls.r11 = Rectangle(10, 10, 10, 10)
 
     def test_id_passed(self):
         self.assertEqual(self.r1.id, 3)
@@ -62,3 +63,28 @@ class TestRectangleClass(unittest.TestCase):
         """Test for __str__ method"""
         self.assertEqual(str(self.r3), "[Rectangle] (5) 3/4 - 1/2")
         self.assertEqual(str(self.r4), "[Rectangle] (15) 3/4 - 1/7")
+
+    def test_update_method_for_args(self):
+        """Test for update method for args"""
+        self.assertEqual(str(self.r10), "[Rectangle] (6) 10/10 - 10/10")
+        self.r10.update(89)
+        self.assertEqual(str(self.r10), "[Rectangle] (89) 10/10 - 10/10")
+        self.r10.update(89, 2)
+        self.assertEqual(str(self.r10), "[Rectangle] (89) 10/10 - 2/10")
+        self.r10.update(89, 2, 3)
+        self.assertEqual(str(self.r10), "[Rectangle] (89) 10/10 - 2/3")
+        self.r10.update(89, 2, 3, 4)
+        self.assertEqual(str(self.r10), "[Rectangle] (89) 4/10 - 2/3")
+        self.r10.update(89, 2, 3, 4, 5)
+        self.assertEqual(str(self.r10), "[Rectangle] (89) 4/5 - 2/3")
+
+    def test_update_method_for_kwargs(self):
+        """Test for update method for kwargs"""
+        self.r11.update(height=1)
+        self.assertEqual(str(self.r11), "[Rectangle] (7) 10/10 - 10/1")
+        self.r11.update(width=1, x=2)
+        self.assertEqual(str(self.r11), "[Rectangle] (7) 2/10 - 1/1")
+        self.r11.update(y=1, width=2, x=3, id=89)
+        self.assertEqual(str(self.r11), "[Rectangle] (89) 3/1 - 2/1")
+        self.r11.update(x=1, height=2, y=3, width=4)
+        self.assertEqual(str(self.r11), "[Rectangle] (89) 1/3 - 4/2")
