@@ -15,7 +15,7 @@ class Square(Rectangle):
             y: (int)
         """
         super().__init__(size, size, x, y, id)
-    
+
     def __str__(self) -> str:
         """
         Returns string representation of Rectangle instance
@@ -37,7 +37,7 @@ class Square(Rectangle):
         Sets object's width
 
         Args:
-            value: (int) value of object's width        
+            value: (int) value of object's width
         """
         self.width = value
         self.height = value
