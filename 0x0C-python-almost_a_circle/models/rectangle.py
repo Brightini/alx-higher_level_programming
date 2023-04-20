@@ -132,3 +132,16 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """ Returns the dictionary representation of a Rectangle object"""
+        data = {}
+        # iterate over all attributes of the object
+        for attr in self.__dict__:
+            # to remove class name and '_' prefix of attribute name
+            key = attr.lstrip('_').split('_')[-1]
+            # get the value of the attribute
+            value = getattr(self, attr)
+            # collect data for serializable attributes
+            data[key] = value
+        return data
