@@ -1,13 +1,14 @@
-"""Defines test cases for Rectangle class"""
+""" Defines test cases for Rectangle class """
 import unittest
 from models.rectangle import Rectangle
 
 
 class TestRectangleClass(unittest.TestCase):
-    """Test cases for rectangle class"""
+    """ Test cases for rectangle class """
 
     @classmethod
     def setUpClass(cls):
+        """ Set up class instances """
         cls.r1 = Rectangle(1, 2)
         cls.r2 = Rectangle(1, 2, 3)
         cls.r3 = Rectangle(1, 2, 3, 4)
@@ -15,34 +16,35 @@ class TestRectangleClass(unittest.TestCase):
         cls.r10 = Rectangle(10, 10, 10, 10)
         cls.r11 = Rectangle(10, 10, 10, 10)
 
-    def test_id_passed(self):
+    def test_object_id(self):
+        """ Test for instance id """
         self.assertEqual(self.r1.id, 3)
         self.assertEqual(self.r2.id, 4)
         self.assertEqual(self.r3.id, 5)
         self.assertEqual(self.r4.id, 15)
 
     def test_width_setter(self):
-        """Test width setter"""
+        """ Test width setter """
         self.r4.width = 10
         self.assertEqual(self.r4.width, 10)
 
-    def test_height_getter(self):
-        """Test height getter"""
+    def test_height_setter(self):
+        """ Test height getter """
         self.r4.height = 7
         self.assertEqual(self.r4.height, 7)
 
-    def test_x_getter(self):
-        """Test x getter"""
+    def test_x_setter(self):
+        """ Test x getter """
         self.r4.x = 9
         self.assertEqual(self.r4.x, 9)
 
-    def test_y_getter(self):
-        """Test y getter"""
+    def test_y_setter(self):
+        """ Test y getter """
         self.r4.y = 7
         self.assertEqual(self.r4.y, 7)
 
     def test_attribute_error(self):
-        """Test for errors in instance attributes"""
+        """ Test for errors in instance attributes """
         with self.assertRaises(TypeError):
             Rectangle(1, "h")
             Rectangle(6.98, 4)
@@ -55,17 +57,17 @@ class TestRectangleClass(unittest.TestCase):
             Rectangle(5, 9, 2, -10)
 
     def test_area(self):
-        """Test for area"""
+        """ Test for area """
         self.assertEqual(self.r1.area(), 2)
         self.assertEqual(self.r4.area(), 2)
 
     def test_str_method(self):
-        """Test for __str__ method"""
+        """ Test for __str__ method """
         self.assertEqual(str(self.r3), "[Rectangle] (5) 3/4 - 1/2")
         self.assertEqual(str(self.r4), "[Rectangle] (15) 3/4 - 1/7")
 
     def test_update_method_for_args(self):
-        """Test for update method for args"""
+        """ Test for update method for args """
         self.assertEqual(str(self.r10), "[Rectangle] (6) 10/10 - 10/10")
         self.r10.update(89)
         self.assertEqual(str(self.r10), "[Rectangle] (89) 10/10 - 10/10")
@@ -79,7 +81,7 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(str(self.r10), "[Rectangle] (89) 4/5 - 2/3")
 
     def test_update_method_for_kwargs(self):
-        """Test for update method for kwargs"""
+        """ Test for update method for kwargs """
         self.r11.update(200, height=1)
         self.assertEqual(str(self.r11), "[Rectangle] (200) 10/10 - 10/10")
         self.r11.update(height=1)
