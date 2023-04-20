@@ -15,6 +15,8 @@ class TestRectangleClass(unittest.TestCase):
         cls.r4 = Rectangle(1, 2, 3, 4, 15)
         cls.r10 = Rectangle(10, 10, 10, 10)
         cls.r11 = Rectangle(10, 10, 10, 10)
+        cls.r12 = Rectangle(10, 2, 1, 9)
+        cls.r13 = Rectangle(1, 1)
 
     def test_object_id(self):
         """ Test for instance id """
@@ -92,3 +94,10 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(str(self.r11), "[Rectangle] (89) 3/1 - 2/1")
         self.r11.update(x=1, height=2, y=3, width=4)
         self.assertEqual(str(self.r11), "[Rectangle] (89) 1/3 - 4/2")
+
+    def test_to_dictionary(self):
+        """ Test for dictionary represention of object """
+        r12_dictionary = self.r12.to_dictionary()
+        self.assertEqual(str(type(r12_dictionary)), "<class 'dict'>")
+        self.r13.update(**r12_dictionary)
+        self.assertFalse(self.r12 == self.r13)

@@ -13,26 +13,28 @@ class TestSquareClass(unittest.TestCase):
         cls.s2 = Square(2, 2)
         cls.s3 = Square(3, 1, 3)
         cls.s4 = Square(5)
+        cls.s5 = Square(10, 2, 1)
+        cls.s6 = Square(1, 1)
 
     def test_object_id(self):
         """ Test for instance id """
-        self.assertEqual(self.s1.id, 8)
-        self.assertEqual(self.s2.id, 9)
-        self.assertEqual(self.s3.id, 10)
+        self.assertEqual(self.s1.id, 10)
+        self.assertEqual(self.s2.id, 11)
+        self.assertEqual(self.s3.id, 12)
 
     def test_size_setter(self):
         """ Test for size setter method """
         self.s1.size = 10
-        self.assertEqual(str(self.s1), "[Square] (8) 0/0 - 10")
+        self.assertEqual(str(self.s1), "[Square] (10) 0/0 - 10")
 
         with self.assertRaises(TypeError):
             self.s1.size = "h"
 
     def test_str_method(self):
         """ Test for __str__ method """
-        self.assertEqual(str(self.s1), "[Square] (8) 0/0 - 10")
-        self.assertEqual(str(self.s2), "[Square] (9) 2/0 - 2")
-        self.assertEqual(str(self.s3), "[Square] (10) 1/3 - 3")
+        self.assertEqual(str(self.s1), "[Square] (10) 0/0 - 10")
+        self.assertEqual(str(self.s2), "[Square] (11) 2/0 - 2")
+        self.assertEqual(str(self.s3), "[Square] (12) 1/3 - 3")
 
     def test_area(self):
         """ Test for area """
@@ -59,3 +61,10 @@ class TestSquareClass(unittest.TestCase):
         self.assertEqual(str(self.s4), "[Square] (1) 12/1 - 7")
         self.s4.update(size=7, id=89, y=1)
         self.assertEqual(str(self.s4), "[Square] (89) 12/1 - 7")
+
+    def test_to_dictionary(self):
+        """ Test for dictionary represention of object """
+        s5_dictionary = self.s5.to_dictionary()
+        self.assertEqual(str(type(s5_dictionary)), "<class 'dict'>")
+        self.s6.update(**s5_dictionary)
+        self.assertFalse(self.s5 == self.s6)
