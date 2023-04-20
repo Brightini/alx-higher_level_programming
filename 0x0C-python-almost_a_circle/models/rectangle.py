@@ -1,17 +1,32 @@
 #!/usr/bin/python3
-"""Defines Rectangle class"""
+""" Defines Rectangle class """
 from models.base import Base
 
 
 class Rectangle(Base):
     """A Rectangle class"""
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Instantiates Rectangle instances"""
+        """
+        Instantiates Rectangle instances
+
+        Args:
+            width: (int) width of Rectangle object
+            height: (int) height of Rectangle object
+            x: (int)
+            y: (int)
+        """
         self.width = width
         self.height = height
         self.x = x
         self.y = y
         super().__init__(id)
+
+    def __str__(self):
+        """ Returns string representation of Rectangle instance """
+        str_rep = "[{}] ({}) {}/{} - {}/{}"
+        idd, xx, yy, w = self.id, self.__x, self.__y, self.__width
+        h = self.__height
+        return str_rep.format(__class__.__name__, idd, xx, yy, w, h)
 
     @property
     def width(self):
@@ -20,7 +35,12 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        """Sets width"""
+        """
+        Sets width
+
+        Args:
+            value: (int) value of width
+        """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -29,12 +49,17 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """Gets height"""
+        """ Gets height """
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Sets height"""
+        """
+        Sets height
+
+        Args:
+            value: (int) value of height
+        """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -43,12 +68,17 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """Gets x"""
+        """ Gets x """
         return self.__x
 
     @x.setter
     def x(self, value):
-        """Sets x"""
+        """
+        Sets x
+
+        Args:
+            value: (int) value of x
+        """
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
@@ -57,12 +87,17 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """Gets y"""
+        """ Gets y """
         return self.__y
 
     @y.setter
     def y(self, value):
-        """Sets y"""
+        """
+        Sets y
+
+        Args:
+            value: (int) value of y
+        """
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
@@ -70,11 +105,11 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """Computes and returns the area of a Rectangle object"""
+        """ Computes and returns the area of a Rectangle object """
         return (self.__width * self.__height)
 
     def display(self):
-        """Prints Rectangle instance with character '#'"""
+        """ Prints Rectangle instance with character '#' """
         for _ in range(self.__y):
             print()
         for _ in range(self.__height):
@@ -83,15 +118,13 @@ class Rectangle(Base):
                 print('#', end="")
             print()
 
-    def __str__(self):
-        """Returns string representation of Rectangle instance"""
-        str_rep = "[{}] ({}) {}/{} - {}/{}"
-        idd, xx, yy, w = self.id, self.__x, self.__y, self.__width
-        h = self.__height
-        return str_rep.format(__class__.__name__, idd, xx, yy, w, h)
-
     def update(self, *args, **kwargs):
-        """Updates object attributes"""
+        """
+        Updates object attributes
+
+        Args:
+            args: arguments for values of class attributes
+        """
         attr = ['id', 'width', 'height', 'x', 'y']
         if len(args) != 0:
             for i, arg in enumerate(args):
