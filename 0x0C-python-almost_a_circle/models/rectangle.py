@@ -124,6 +124,7 @@ class Rectangle(Base):
 
         Args:
             args: arguments for values of class attributes
+            kwargs: dictionary containing attributes and their values
         """
         attr = ['id', 'width', 'height', 'x', 'y']
         if len(args) != 0:
