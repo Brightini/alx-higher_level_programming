@@ -47,6 +47,7 @@ class TestBaseClass(unittest.TestCase):
         with open("Rectangle.json", "r", encoding="UTF-8") as r_file:
             r_file.read()
         self.assertTrue(os.path.exists("Rectangle.json"))
+
         # next for Square class
         s1 = Square(10, 2, 1)
         s2 = Square(1, 1)
@@ -54,3 +55,29 @@ class TestBaseClass(unittest.TestCase):
         with open("Square.json", "r", encoding="UTF-8") as s_file:
             s_file.read()
         self.assertTrue(os.path.exists("Square.json"))
+
+    def test_save_to_file_empty_list_for_Square(self):
+        """ Test for save an empty list """
+        Square.save_to_file(None)
+        with open("Square.json", "r", encoding="UTF-8") as s_file:
+            s_file.read()
+        self.assertTrue(os.path.exists("Square.json"))
+
+    def test_save_to_file_argument_None_for_Square(self):
+        Square.save_to_file([])
+        with open("Square.json", "r", encoding="UTF-8") as s_file:
+            s_file.read()
+        self.assertTrue(os.path.exists("Square.json"))
+
+    def test_save_to_file_empty_list_for_Rectangle(self):
+        """ Test for save an empty list """
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r", encoding="UTF-8") as s_file:
+            s_file.read()
+        self.assertTrue(os.path.exists("Rectangle.json"))
+
+    def test_save_to_file_argument_None_for_Rectangle(self):
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r", encoding="UTF-8") as s_file:
+            s_file.read()
+        self.assertTrue(os.path.exists("Rectangle.json"))
