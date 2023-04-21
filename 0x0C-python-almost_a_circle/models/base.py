@@ -87,8 +87,12 @@ class Base:
         Return:
             the list of the JSON string representation @json_string
         """
-        json_rep = json.loads(json_string)
-        return json_rep
+        empty_list = []
+        if not json_string:
+            return empty_list
+        else:
+            json_rep = json.loads(json_string)
+            return json_rep
 
     @classmethod
     def create(cls, **dictionary):
