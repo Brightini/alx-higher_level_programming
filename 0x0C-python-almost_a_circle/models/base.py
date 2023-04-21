@@ -75,3 +75,21 @@ class Base:
             # collect data for serializable attributes
             data[key] = value
         return data
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Deserializes the JSON string @json_string
+
+        Args:
+            json_string: JSON string representation
+
+        Return:
+            the list of the JSON string representation @json_string
+        """
+        json_rep = json.loads(json_string)
+        return json_rep
+
+    @classmethod
+    def create(cls, **dictionary):
+        pass

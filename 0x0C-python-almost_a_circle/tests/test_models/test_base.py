@@ -57,27 +57,62 @@ class TestBaseClass(unittest.TestCase):
         self.assertTrue(os.path.exists("Square.json"))
 
     def test_save_to_file_empty_list_for_Square(self):
-        """ Test for save an empty list """
+        """ Test to save an empty list for Square object """
         Square.save_to_file(None)
         with open("Square.json", "r", encoding="UTF-8") as s_file:
             s_file.read()
         self.assertTrue(os.path.exists("Square.json"))
 
     def test_save_to_file_argument_None_for_Square(self):
+        """ Test to save when argument is None for Square object"""
         Square.save_to_file([])
         with open("Square.json", "r", encoding="UTF-8") as s_file:
             s_file.read()
         self.assertTrue(os.path.exists("Square.json"))
 
     def test_save_to_file_empty_list_for_Rectangle(self):
-        """ Test for save an empty list """
+        """ Test for save an empty list for Rectangle object """
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r", encoding="UTF-8") as s_file:
             s_file.read()
         self.assertTrue(os.path.exists("Rectangle.json"))
 
     def test_save_to_file_argument_None_for_Rectangle(self):
+        """ Test to save when argument is None for Rectangle object """
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r", encoding="UTF-8") as s_file:
             s_file.read()
         self.assertTrue(os.path.exists("Rectangle.json"))
+
+    def test_from_json_string_non_empty_list(self):
+        """ Test for deserialization of non-empty list """
+        list_input = [
+            {'id': 89, 'width': 10, 'height': 4},
+            {'id': 7, 'width': 1, 'height': 7}
+        ]
+        json_list_input = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
+        self.assertEqual(type(list_output), list)
+
+    def test_from_json_string_empty_list(self):
+        """ Test for deserialization of empty list """
+        list_input = []
+        json_list_input = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
+        self.assertEqual(type(list_output), list)
+
+    def test_from_json_string_None_argument(self):
+        """ Test for deserialization when argument is None """
+        json_list_input = Rectangle.to_json_string(None)
+        list_output = Rectangle.from_json_string(json_list_input)
+        self.assertEqual(type(list_output), list)
+
+    # def test_create(self):
+    #     """ Test for create method """
+    #     r4 = Rectangle(3, 5, 1)
+    #     r4_dictionary = r4.to_dictionary()
+    #     r5 = Rectangle.create(**r4_dictionary)
+    #     self.assertEqual(str(print(r4)), "[Rectangle] (5) 1/0 - 3/5")
+    #     self.assertEqual(str(print(r5)), "[Rectangle] (5) 1/0 - 3/5")
+    #     self.assertFalse(r4 is r5)
+    #     self.assertFalse(r4 == r5)
