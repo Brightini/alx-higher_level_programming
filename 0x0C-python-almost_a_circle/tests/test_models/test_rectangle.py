@@ -20,9 +20,9 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_object_id(self):
         """ Test for instance id """
-        self.assertEqual(self.r1.id, 8)
-        self.assertEqual(self.r2.id, 9)
-        self.assertEqual(self.r3.id, 10)
+        self.assertEqual(self.r1.id, 16)
+        self.assertEqual(self.r2.id, 17)
+        self.assertEqual(self.r3.id, 18)
         self.assertEqual(self.r4.id, 15)
 
     def test_width_setter(self):
@@ -65,12 +65,12 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_str_method(self):
         """ Test for __str__ method """
-        self.assertEqual(str(self.r3), "[Rectangle] (10) 3/4 - 1/2")
+        self.assertEqual(str(self.r3), "[Rectangle] (18) 3/4 - 1/2")
         self.assertEqual(str(self.r4), "[Rectangle] (15) 3/4 - 1/7")
 
     def test_update_method_for_args(self):
         """ Test for update method for args """
-        self.assertEqual(str(self.r10), "[Rectangle] (11) 10/10 - 10/10")
+        self.assertEqual(str(self.r10), "[Rectangle] (19) 10/10 - 10/10")
         self.r10.update(89)
         self.assertEqual(str(self.r10), "[Rectangle] (89) 10/10 - 10/10")
         self.r10.update(89, 2)

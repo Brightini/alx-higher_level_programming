@@ -18,23 +18,23 @@ class TestSquareClass(unittest.TestCase):
 
     def test_object_id(self):
         """ Test for instance id """
-        self.assertEqual(self.s1.id, 15)
-        self.assertEqual(self.s2.id, 16)
-        self.assertEqual(self.s3.id, 17)
+        self.assertEqual(self.s1.id, 23)
+        self.assertEqual(self.s2.id, 24)
+        self.assertEqual(self.s3.id, 25)
 
     def test_size_setter(self):
         """ Test for size setter method """
         self.s1.size = 10
-        self.assertEqual(str(self.s1), "[Square] (15) 0/0 - 10")
+        self.assertEqual(str(self.s1), "[Square] (23) 0/0 - 10")
 
         with self.assertRaises(TypeError):
             self.s1.size = "h"
 
     def test_str_method(self):
         """ Test for __str__ method """
-        self.assertEqual(str(self.s1), "[Square] (15) 0/0 - 10")
-        self.assertEqual(str(self.s2), "[Square] (16) 2/0 - 2")
-        self.assertEqual(str(self.s3), "[Square] (17) 1/3 - 3")
+        self.assertEqual(str(self.s1), "[Square] (23) 0/0 - 10")
+        self.assertEqual(str(self.s2), "[Square] (24) 2/0 - 2")
+        self.assertEqual(str(self.s3), "[Square] (25) 1/3 - 3")
 
     def test_area(self):
         """ Test for area """
