@@ -33,7 +33,7 @@ class Base:
         """
         if not list_dictionaries:
             return "[]"
-        json_rep = json.dumps(list_dictionaries)
+        json_rep = json.dumps(list_dictionaries, ensure_ascii=False)
         return json_rep
 
     @classmethod
@@ -50,10 +50,14 @@ class Base:
             list_objs: a list of objects
         """
         dict_list = []
+        # convert to list of dictionaries
         for obj in list_objs:
             dict_list.append(obj.to_dictionary())
+        # get JSON representation of @dict_list
+        json_rep = cls.to_json_string(dict_list)
+        # write to json file
         with open(f"{cls.__name__}.json", "w", encoding="UTF-8") as file:
-            json.dump(dict_list, file)
+            file.write(json_rep)
 
     def to_dictionary(self):
         """ Returns the dictionary representation of an object"""
