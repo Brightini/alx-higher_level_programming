@@ -1,7 +1,6 @@
 #!/usr/bin/node
 
-let result;
-result = factorial(Number(process.argv[2]));
+const result = factorial(Number(process.argv[2]));
 console.log(result);
 
 function factorial (num) {
