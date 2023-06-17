@@ -8,5 +8,5 @@ const file3 = process.argv[4];
 
 const content1 = fs.readFileSync(file1, 'UTF-8');
 const content2 = fs.readFileSync(file2, 'UTF-8');
-const combinedContent = content1 + content2 + '\n';
+const combinedContent = content1 + content2;
 fs.writeFileSync(file3, combinedContent);
