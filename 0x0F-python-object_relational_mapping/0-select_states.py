@@ -20,7 +20,7 @@ if __name__=="__main__":
 	# to perform operations on the database
 	cursor_object = db.cursor()
 
-	cursor_object.execute("SELECT * from states")
+	cursor_object.execute("SELECT * from states ORDER BY id ASC")
 	rows = cursor_object.fetchall()
 	for row in rows:
 		print("{}".format(row))
