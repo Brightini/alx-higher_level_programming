@@ -3,9 +3,12 @@
     in the states table where name matches with argument
 """
 
+import MySQLdb
+from sys import argv, exit
+
 if __name__ == "__main__":
-    import MySQLdb
-    from sys import argv
+    if len(argv) != 4:
+        exit(1)
 
     user_name, password, database, match = argv[1], argv[2], argv[3], argv[4]
 

@@ -2,10 +2,12 @@
 """ This script lists all states with a name starting with 'N'
     from a database
 """
+import MySQLdb
+from sys import argv
 
 if __name__ == "__main__":
-    import MySQLdb
-    from sys import argv
+    if len(argv) != 4:
+        exit(1)
 
     user_name, password, database = argv[1], argv[2], argv[3]
 
