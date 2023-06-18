@@ -26,3 +26,6 @@ if __name__ == "__main__":
     rows = cursor_object.fetchall()
     for row in rows:
         print("{}".format(row))
+
+    cursor_object.close()
+    db.close()
