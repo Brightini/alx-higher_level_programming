@@ -4,7 +4,7 @@
 """
 
 import MySQLdb
-from sys import argv, exit
+from sys import argv
 
 if __name__ == "__main__":
 
@@ -23,7 +23,13 @@ if __name__ == "__main__":
     # to perform operations on the database
     cursor_object = db.cursor()
 
-    cursor_object.execute("SELECT * from states WHERE name = %s", (match,))
+    query = """
+    SELECT * from states
+    WHERE name = '{}'
+    ORDER BY states.id ASC
+    """.format(match)
+
+    cursor_object.execute(query)
     rows = cursor_object.fetchall()
     for row in rows:
         print("{}".format(row))

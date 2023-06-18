@@ -6,8 +6,6 @@ import MySQLdb
 from sys import argv
 
 if __name__ == "__main__":
-    if len(argv) != 4:
-        exit(1)
 
     user_name, password, database = argv[1], argv[2], argv[3]
 
@@ -24,12 +22,12 @@ if __name__ == "__main__":
     # to perform operations on the database
     cursor_object = db.cursor()
 
-    cursor_object.execute(
-        "SELECT * \
-        from states \
-        WHERE name \
-        LIKE 'N%' \
-        ORDER BY id ASC")
+    query = """
+    SELECT * FROM states
+    WHERE name LIKE 'N%'
+    ORDER BY states.id ASC
+    """
+    cursor_object.execute(query)
     rows = cursor_object.fetchall()
     for row in rows:
         print("{}".format(row))
