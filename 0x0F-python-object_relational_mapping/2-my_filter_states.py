@@ -7,7 +7,7 @@ import MySQLdb
 from sys import argv
 
 if __name__ == "__main__":
-    if len(argv) != 4:
+    if len(argv) != 5:
         print("Usage: ./2-my_filter_states.py root"
               "root hbtn_0e_0_usa 'state_name'")
         exit(1)
