@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     query = """
     SELECT * FROM states
-    WHERE name LIKE 'N%'
+    WHERE name COLLATE utf8_bin LIKE 'N%'
     ORDER BY states.id ASC
     """
     cursor_object.execute(query)
