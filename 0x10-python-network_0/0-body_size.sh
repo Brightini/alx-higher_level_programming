@@ -1,6 +1,3 @@
 #!/bin/bash
-# this script that takes in a URL, sends a request to that URL,
-# and displays the size of the body of the response
-
-response=$(curl -s -o /dev/null/ -w "%{size_download}" "$1")
-echo $response
+# this script that takes in a URL, sends a request to that URL and gets a response (size in bytes)
+response=$(curl -s -o /dev/null/ -w "%{size_download}" "$1"); echo $response
