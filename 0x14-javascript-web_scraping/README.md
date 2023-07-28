@@ -1,0 +1,1 @@
+The repo contains tasks on Web scraping using JavaScript.
