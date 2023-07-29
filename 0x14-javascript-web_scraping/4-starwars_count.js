@@ -14,8 +14,8 @@ request(options, (error, response, body) => {
   if (error) {
     console.log(error);
   }
-  const json = JSON.parse(body);
-  for (const movie of json.results) {
+  const movies = JSON.parse(body).results;
+  for (const movie of movies) {
     if (movie.characters.includes(
       'https://swapi-api.alx-tools.com/api/people/18/')) {
       count++;
