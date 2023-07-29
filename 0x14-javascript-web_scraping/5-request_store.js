@@ -14,8 +14,7 @@ request(options, (error, response, body) => {
   if (error) {
     console.log(error);
   }
-  const data = JSON.parse(body);
-  fs.writeFile(filepath, data, 'UTF-8', (error) => {
-	if (error) throw error;
+  fs.writeFile(filepath, body, 'UTF-8', (error) => {
+    if (error) throw error;
   });
 });
