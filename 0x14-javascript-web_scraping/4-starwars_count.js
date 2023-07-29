@@ -16,10 +16,9 @@ request(options, (error, response, body) => {
   }
   const movies = JSON.parse(body).results;
   for (const movie of movies) {
-    for (const character of movie.characters) {
-      if (movie.characters.includes('18')) {
-        count++;
-      }
+    if (movie.characters.includes(
+      '18')) {
+      count++;
     }
     
   }
