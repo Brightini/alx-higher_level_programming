@@ -8,7 +8,7 @@ const options = {
   method: 'GET'
 };
 
-const count = 0;
+let count = 0;
 
 request(options, (error, response, body) => {
   if (error) {
